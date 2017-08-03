@@ -1,5 +1,5 @@
 # lemon-mybatis-plus
-根据真实使用场景对mybatis的进行扩展，实现分页、json存储、数组存储、blob存储等支持。
+根据真实使用场景对mybatis进行的扩展，实现分页、json存储、数组存储、blob存储等支持。
 
 ### 扩展Mybatis数据类型
 
@@ -40,5 +40,22 @@ mapper定义格式
 ```
 
 ### 扩展Mybatis自动执行分页SQL处理
+##### 1、MysqlPageInterceptor支持mysql数据的分页
+```java
+PageInterceptor pageInterceptor = new MysqlPageInterceptor();
+sessionFactory.setPlugins(new Interceptor[]{pageInterceptor});
+```
 
+##### 2、OraclePageInterceptor支持oracle数据的分页
+```java
+PageInterceptor pageInterceptor = new OraclePageInterceptor();
+sessionFactory.setPlugins(new Interceptor[]{pageInterceptor});
+```
 
+##### 3、PostgresqlPageInterceptor支持postgresql数据的分页
+```java
+PageInterceptor pageInterceptor = new PostgresqlPageInterceptor();
+sessionFactory.setPlugins(new Interceptor[]{pageInterceptor});
+```
+
+ps:如果分页对应的查询语句中不存在` from `会throw异常分页查询SQL没有找到[from]关键字，from必须为小写且前后加空格。
