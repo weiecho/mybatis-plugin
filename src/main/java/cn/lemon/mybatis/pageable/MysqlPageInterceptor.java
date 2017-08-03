@@ -1,0 +1,36 @@
+package cn.lemon.mybatis.pageable;
+
+import java.sql.Connection;
+
+import org.apache.ibatis.executor.statement.StatementHandler;
+import org.apache.ibatis.plugin.Intercepts;
+import org.apache.ibatis.plugin.Invocation;
+import org.apache.ibatis.plugin.Signature;
+
+import cn.lemon.framework.query.Page;
+
+/**
+ * 分页拦截器 mysql
+ * 
+ * @author lonyee
+ *
+ */
+@Intercepts({ @Signature(type = StatementHandler.class, method = "prepare", args = { Connection.class, Integer.class }) })
+public class MysqlPageInterceptor extends PageInterceptor {
+	
+	@Override
+	public Object intercept(Invocation invocation) throws Throwable {
+		if ("mysql".equalsIgnoreCase(this.getDialect())) {
+			return super.intercept(invocation);
+		}
+		return invocation.proceed();
+	}
+	
+	@Override
+	protected String getPageSql(Page page, String sql) {
+	    StringBuffer sqlBuffer = new StringBuffer(sql);    
+		//计算第一条记录的位置，Mysql中记录的位置是从0开始的。 
+		sqlBuffer.append(" limit ").append(page.getOffset()).append(",").append(page.getLimit());
+		return sqlBuffer.toString();
+	}
+}
