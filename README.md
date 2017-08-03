@@ -24,7 +24,7 @@ private Object imagesUrl;
 
 mapper定义格式
 ```xml
-<result property="imagesUrl" column="imagesUrl" typeHandler="cn.lemon.mybatis.plugin.ArrayTypeHandler"/>
+<result property="imagesUrl" column="imagesUrl" typeHandler="cn.lemon.mybatis.plugin.JsonTypeHandler"/>
 ```
 
 ##### 3、BlobTypeHandler 支持Blob数据的存储和读取
@@ -36,7 +36,7 @@ private String content;
 
 mapper定义格式
 ```xml
-<result property="content" column="content" typeHandler="cn.lemon.provider.config.BlobTypeHandler"/>
+<result property="content" column="content" typeHandler="cn.lemon.mybatis.plugin.BlobTypeHandler"/>
 ```
 
 ### 扩展Mybatis自动执行分页SQL处理
