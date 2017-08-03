@@ -15,7 +15,7 @@ import org.apache.ibatis.type.JdbcType;
 /**
  * 自定义typehandler，解决mybatis存储blob字段后，出现乱码的问题 
  * 配置mapper.xml： 
- * <result typeHandler="cn.lemon.dubbo.provider.config.BlobTypeHandler"/> 
+ * <result typeHandler="cn.lemon.mybatis.plugin.BlobTypeHandler"/> 
  * 
  * @author lonyee
  */

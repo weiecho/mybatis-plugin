@@ -13,7 +13,7 @@ import cn.lemon.framework.utils.JsonUtil;
 /**
  * 扩展mybatis支持json格式
  * 配置mapper.xml： 
- * <result typeHandler="cn.lemon.dubbo.provider.config.ArrayTypeHandler"/> 
+ * <result typeHandler="cn.lemon.mybatis.plugin.JsonTypeHandler"/> 
  * 
  * @author lonyee
  */

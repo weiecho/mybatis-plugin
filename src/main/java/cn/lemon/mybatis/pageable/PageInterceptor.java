@@ -15,24 +15,20 @@ import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.mapping.MappedStatement;
 import org.apache.ibatis.mapping.ParameterMapping;
 import org.apache.ibatis.plugin.Interceptor;
-import org.apache.ibatis.plugin.Intercepts;
 import org.apache.ibatis.plugin.Invocation;
 import org.apache.ibatis.plugin.Plugin;
-import org.apache.ibatis.plugin.Signature;
 import org.apache.ibatis.scripting.defaults.DefaultParameterHandler;
 
 import cn.lemon.framework.query.Page;
 import cn.lemon.framework.utils.ReflectUtil;
 
 /**
- * 分页拦截器 默认mysql
+ * 分页拦截器
  * 
  * @author lonyee
  *
  */
-@Intercepts({ @Signature(type = StatementHandler.class, method = "prepare", args = { Connection.class, Integer.class }) })
-public class PageInterceptor implements Interceptor {
-	private String	dialect = "mysql";	//数据库方言
+public abstract class PageInterceptor implements Interceptor {
 
 	@Override
 	public Object intercept(Invocation invocation) throws Throwable {
@@ -110,6 +106,16 @@ public class PageInterceptor implements Interceptor {
 		}
 	}
 
+	@Override
+	public Object plugin(Object target) {
+		return Plugin.wrap(target, this);
+	}
+	
+	@Override
+	public void setProperties(Properties properties) {
+		// nothing to do
+	}
+	
 	private String getCountSql(String sql) {
 		int index = sql.indexOf(" from ");
 		if (index<0) {
@@ -118,31 +124,6 @@ public class PageInterceptor implements Interceptor {
 		return "select count(*) " + sql.substring(index);
 	}
 
-	protected String getPageSql(Page page, String sql) {
-		StringBuffer sqlBuffer = new StringBuffer(sql);
-		//计算第一条记录的位置，Mysql中记录的位置是从0开始的。 
-		sqlBuffer.append(" limit ").append(page.getOffset()).append(",").append(page.getLimit());
-		return sqlBuffer.toString();
-	}
-
-	@Override
-	public Object plugin(Object target) {
-		return Plugin.wrap(target, this);
-	}
-
-	public String getDialect() {
-		return dialect;
-	}
-
-	public void setDialect(String dialect) {
-		this.dialect = "mysql";
-		if ("oracle".equalsIgnoreCase(dialect)) {
-			this.dialect = "oracle";
-		}
-	}
-
-	@Override
-	public void setProperties(Properties properties) {
-		this.setDialect(properties.getProperty("dialect"));
-	}
+	protected abstract String getPageSql(Page page, String sql);
+	
 }

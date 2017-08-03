@@ -11,18 +11,18 @@ import org.apache.ibatis.type.JdbcType;
 /**
  * 扩展mybatis支持数组格式
  * 配置mapper.xml： 
- * <result typeHandler="cn.lemon.dubbo.provider.config.ArrayTypeHandler"/> 
+ * <result typeHandler="cn.lemon.mybatis.plugin.ArrayTypeHandler"/> 
  * 
  * @date 2017年8月3日 下午8:02:30 <br>
  * @author lonyee
  */
-public class ArrayTypeHandler extends BaseTypeHandler<Object[]> {
+public class ArrayTypeHandler extends BaseTypeHandler<String[]> {
     
     @Override
-    public void setNonNullParameter(PreparedStatement ps, int i, Object[] parameter, JdbcType jdbcType) throws SQLException {
+    public void setNonNullParameter(PreparedStatement ps, int i, String[] parameter, JdbcType jdbcType) throws SQLException {
     	StringBuilder arrayBuilder = new StringBuilder();
     	if (parameter != null && parameter.length>0) {
-            for(Object val: parameter){
+            for(String val: parameter){
             	arrayBuilder.append(",");
             	arrayBuilder.append(val);
             }
@@ -32,26 +32,26 @@ public class ArrayTypeHandler extends BaseTypeHandler<Object[]> {
     }
 
     @Override
-    public Object[] getNullableResult(ResultSet rs, String columnName)
+    public String[] getNullableResult(ResultSet rs, String columnName)
             throws SQLException {
 
         return getArray(rs.getString(columnName));
     }
 
     @Override
-    public Object[] getNullableResult(ResultSet rs, int columnIndex) throws SQLException {
+    public String[] getNullableResult(ResultSet rs, int columnIndex) throws SQLException {
 
         return getArray(rs.getString(columnIndex));
     }
 
     @Override
-    public Object[] getNullableResult(CallableStatement cs, int columnIndex)
+    public String[] getNullableResult(CallableStatement cs, int columnIndex)
             throws SQLException {
 
         return getArray(cs.getString(columnIndex));
     }
     
-    private Object[] getArray(String array) {
+    private String[] getArray(String array) {
         
         if (array == null) {
             return null;

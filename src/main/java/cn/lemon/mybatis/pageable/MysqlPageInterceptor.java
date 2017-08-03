@@ -19,14 +19,6 @@ import cn.lemon.framework.query.Page;
 public class MysqlPageInterceptor extends PageInterceptor {
 	
 	@Override
-	public Object intercept(Invocation invocation) throws Throwable {
-		if ("mysql".equalsIgnoreCase(this.getDialect())) {
-			return super.intercept(invocation);
-		}
-		return invocation.proceed();
-	}
-	
-	@Override
 	protected String getPageSql(Page page, String sql) {
 	    StringBuffer sqlBuffer = new StringBuffer(sql);    
 		//计算第一条记录的位置，Mysql中记录的位置是从0开始的。 
