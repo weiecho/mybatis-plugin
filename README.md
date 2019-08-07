@@ -39,6 +39,19 @@ mapper定义格式
 <result property="content" column="content" typeHandler="cn.lemon.mybatis.plugin.BlobTypeHandler"/>
 ```
 
+##### 4、ListTypeHandler 支持List<String>数据的存储和读取(可以视为Array的升级版)
+bean定义格式
+```java
+private List<String> tags;
+```
+
+mapper定义格式
+```xml
+<result property="tags" column="tags" typeHandler="cn.lemon.mybatis.plugin.ListTypeHandler"/>
+```
+
+
+
 ### 扩展Mybatis自动执行分页SQL处理
 ##### 1、MysqlPageInterceptor支持mysql数据的分页
 ```java
