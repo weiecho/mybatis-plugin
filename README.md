@@ -1,4 +1,4 @@
-# lemon-mybatis-plus
+# mybatis-plugin
 根据真实使用场景对mybatis进行的扩展，实现分页、json存储、数组存储、blob存储等支持。
 
 ### 扩展Mybatis数据类型
