@@ -1,4 +1,4 @@
-# mybatis-plugin
+# mybatis-handler
 根据真实使用场景对mybatis进行的扩展，实现分页、json存储、数组存储、blob存储等支持。
 
 ### 扩展Mybatis数据类型
@@ -11,7 +11,7 @@ private String[] tags;
 
 mapper定义格式
 ```xml
-<result property="tags" column="tags" typeHandler="cn.lemon.mybatis.plugin.ArrayTypeHandler"/>
+<result property="tags" column="tags" typeHandler="cn.lemon.mybatis.handler.ArrayTypeHandler"/>
 ```
 
 
@@ -24,7 +24,7 @@ private Object imagesUrl;
 
 mapper定义格式
 ```xml
-<result property="imagesUrl" column="imagesUrl" typeHandler="cn.lemon.mybatis.plugin.JsonTypeHandler"/>
+<result property="imagesUrl" column="imagesUrl" typeHandler="cn.lemon.mybatis.handler.JsonTypeHandler"/>
 ```
 
 ##### 3、BlobTypeHandler 支持Blob数据的存储和读取
@@ -36,7 +36,7 @@ private String content;
 
 mapper定义格式
 ```xml
-<result property="content" column="content" typeHandler="cn.lemon.mybatis.plugin.BlobTypeHandler"/>
+<result property="content" column="content" typeHandler="cn.lemon.mybatis.handler.BlobTypeHandler"/>
 ```
 
 ##### 4、ListTypeHandler 支持List<String>数据的存储和读取(可以视为Array的升级版)
@@ -47,7 +47,7 @@ private List<String> tags;
 
 mapper定义格式
 ```xml
-<result property="tags" column="tags" typeHandler="cn.lemon.mybatis.plugin.ListTypeHandler"/>
+<result property="tags" column="tags" typeHandler="cn.lemon.mybatis.handler.ListTypeHandler"/>
 ```
 
 

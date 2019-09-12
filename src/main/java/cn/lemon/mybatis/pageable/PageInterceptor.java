@@ -1,13 +1,6 @@
 package cn.lemon.mybatis.pageable;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
-
+import cn.lemon.mybatis.util.ReflectUtil;
 import org.apache.ibatis.executor.parameter.ParameterHandler;
 import org.apache.ibatis.executor.statement.RoutingStatementHandler;
 import org.apache.ibatis.executor.statement.StatementHandler;
@@ -19,8 +12,13 @@ import org.apache.ibatis.plugin.Invocation;
 import org.apache.ibatis.plugin.Plugin;
 import org.apache.ibatis.scripting.defaults.DefaultParameterHandler;
 
-import cn.lemon.framework.query.Page;
-import cn.lemon.framework.utils.ReflectUtil;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
 
 /**
  * 分页拦截器
@@ -30,7 +28,6 @@ import cn.lemon.framework.utils.ReflectUtil;
  */
 public abstract class PageInterceptor implements Interceptor {
 
-	@Override
 	public Object intercept(Invocation invocation) throws Throwable {
 		RoutingStatementHandler handler = (RoutingStatementHandler) invocation.getTarget();
 		StatementHandler delegate = (StatementHandler) ReflectUtil.getFieldValue(handler, "delegate");
@@ -106,12 +103,10 @@ public abstract class PageInterceptor implements Interceptor {
 		}
 	}
 
-	@Override
 	public Object plugin(Object target) {
 		return Plugin.wrap(target, this);
 	}
 	
-	@Override
 	public void setProperties(Properties properties) {
 		// nothing to do
 	}

@@ -1,4 +1,4 @@
-package cn.lemon.mybatis.plugin;
+package cn.lemon.mybatis.handler;
 
 import java.io.ByteArrayInputStream;
 import java.io.UnsupportedEncodingException;
@@ -15,7 +15,7 @@ import org.apache.ibatis.type.JdbcType;
 /**
  * 自定义typehandler，解决mybatis存储blob字段后，出现乱码的问题 
  * 配置mapper.xml： 
- * <result typeHandler="cn.lemon.mybatis.plugin.BlobTypeHandler"/> 
+ * <result typeHandler="cn.lemon.mybatis.handler.BlobTypeHandler"/>
  * 
  * @author lonyee
  */

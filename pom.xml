@@ -2,12 +2,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>cn.lemon</groupId>
-	<artifactId>lemon-mybatis-plus</artifactId>
+	<groupId>cn.weiecho</groupId>
+	<artifactId>mybatis-plus</artifactId>
 	<version>1.0.1</version>
 	<packaging>jar</packaging>
-	<name>lemon-mybatis-plus</name>
-	<description>lemon mybatis plus</description>
+	<name>mybatis-plus</name>
+	<description>mybatis plus</description>
 	<licenses>
 		<license>
 			<name>The Apache License, Version 2.0</name>
@@ -19,41 +19,31 @@
 			<name>lonyee</name>
 			<email>lonyee@live.com</email>
 			<organization>lemon-china</organization>
-			<organizationUrl>http://www.lemon-china.com</organizationUrl>
+			<organizationUrl>http://www.weiecho.cn</organizationUrl>
 		</developer>
 	</developers>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<framework.version>1.0.1</framework.version>
-		<mybatis.version>1.1.1</mybatis.version>
+		<mybatis.version>2.1.0</mybatis.version>
 	</properties>
 
 	<dependencies>
-		<dependency>
-			<groupId>cn.lemon</groupId>
-			<artifactId>lemon-framework</artifactId>
-			<version>${framework.version}</version>
-		</dependency>
-		<!-- mybatis支持 -->
+		<!-- mybatis -->
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
 			<artifactId>mybatis-spring-boot-starter</artifactId>
 			<version>${mybatis.version}</version>
+			<optional>true</optional>
+		</dependency>
+
+		<!--json-->
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20190722</version>
+			<optional>true</optional>
 		</dependency>
 	</dependencies>
 
-	<!--将项目发布到私服中-->
-	<distributionManagement>
-		<repository>
-			<id>maven-releases</id>
-			<name>maven-releases</name>
-			<url>http://192.168.10.7:8081/repository/maven-releases/</url>
-		</repository>
-		<snapshotRepository>
-			<id>maven-snapshots</id>
-			<name>maven-snapshots</name>
-			<url>http://192.168.10.7:8081/repository/maven-snapshots/</url>
-		</snapshotRepository>
-	</distributionManagement>
 </project>

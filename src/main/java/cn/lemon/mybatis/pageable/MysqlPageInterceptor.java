@@ -1,13 +1,10 @@
 package cn.lemon.mybatis.pageable;
 
-import java.sql.Connection;
-
 import org.apache.ibatis.executor.statement.StatementHandler;
 import org.apache.ibatis.plugin.Intercepts;
-import org.apache.ibatis.plugin.Invocation;
 import org.apache.ibatis.plugin.Signature;
 
-import cn.lemon.framework.query.Page;
+import java.sql.Connection;
 
 /**
  * 分页拦截器 mysql

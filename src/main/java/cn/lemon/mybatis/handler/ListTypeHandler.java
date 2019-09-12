@@ -1,4 +1,4 @@
-package cn.lemon.mybatis.plugin;
+package cn.lemon.mybatis.handler;
 
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * 扩展mybatis支持List格式
  * 配置mapper.xml： 
- * <result typeHandler="cn.lemon.mybatis.plugin.ListTypeHandler"/> 
+ * <result typeHandler="cn.lemon.mybatis.handler.ListTypeHandler"/>
  * 
  * @date 2019年8月7日 下午12:02:30 <br>
  * @author lonyee
