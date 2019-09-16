@@ -11,13 +11,11 @@ public class ReflectUtil {
 
     /**
      * 根据成员变量名称获取对象值
-     * @param clazzInstance
-     * @param field
-     * @return
+     * @param clazzInstance 对象实例
+     * @param field 字段名称
+     * @return 返回对象值
      * @throws IllegalAccessException
      * @throws IllegalArgumentException
-     * @throws NoSuchFieldException
-     * @throws SecurityException
      */
     public static <T> Object getFieldValue(Object clazzInstance, Object field) throws IllegalArgumentException, IllegalAccessException {
 
@@ -35,10 +33,11 @@ public class ReflectUtil {
 
     /**
      * 利用反射设置指定对象的指定属性为指定的值
-     * @param obj
-     * @param fieldName
-     * @param fieldValue
-     * @return
+     * @param obj 对象
+     * @param fieldName 字段名称
+     * @param fieldValue 字段值
+     * @throws IllegalArgumentException
+     * @throws IllegalAccessException
      */
     public static void setFieldValue(Object obj, String fieldName, String fieldValue) throws IllegalArgumentException, IllegalAccessException {
         Field field = getField(obj.getClass(), fieldName);
@@ -50,9 +49,9 @@ public class ReflectUtil {
 
     /**
      * 返回指定字段
-     * @param clazz
-     * @param fieldName
-     * @return
+     * @param clazz 类
+     * @param fieldName 字段名称
+     * @return 字段
      */
     public static <T> Field getField(Class<T> clazz, String fieldName) {
         try {
@@ -69,8 +68,8 @@ public class ReflectUtil {
 
     /**
      * 获取所有的成员变量 (包含父类的成员变量)
-     * @param clazz
-     * @return Field[]
+     * @param clazz 类
+     * @return Field[] 字段数组
      */
     public static <T> Field[] getFields(Class<T> clazz) {
 
