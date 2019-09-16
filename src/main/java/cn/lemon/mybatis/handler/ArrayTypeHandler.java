@@ -10,8 +10,6 @@ import org.apache.ibatis.type.JdbcType;
 
 /**
  * 扩展mybatis支持数组格式
- * 配置mapper.xml： 
- * <result typeHandler="cn.lemon.mybatis.handler.ArrayTypeHandler"/>
  * 
  * @date 2017年8月3日 下午8:02:30 <br>
  * @author lonyee

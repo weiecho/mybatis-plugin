@@ -12,8 +12,6 @@ import java.sql.SQLException;
 
 /**
  * 扩展mybatis支持json格式
- * 配置mapper.xml： 
- * <result typeHandler="cn.lemon.mybatis.handler.JsonTypeHandler"/>
  * 
  * @author lonyee
  */
