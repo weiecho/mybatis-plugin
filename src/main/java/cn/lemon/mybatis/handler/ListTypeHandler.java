@@ -14,7 +14,6 @@ import java.util.List;
 /**
  * 扩展mybatis支持List格式
  * 
- * @date 2019年8月7日 下午12:02:30 <br>
  * @author lonyee
  */
 public class ListTypeHandler extends BaseTypeHandler<List<String>> {
