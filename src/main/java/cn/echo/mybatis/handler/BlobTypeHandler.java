@@ -1,4 +1,4 @@
-package cn.lemon.mybatis.handler;
+package cn.echo.mybatis.handler;
 
 import java.io.ByteArrayInputStream;
 import java.io.UnsupportedEncodingException;

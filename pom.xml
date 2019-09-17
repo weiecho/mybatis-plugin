@@ -5,7 +5,7 @@
 
 	<groupId>cn.weiecho</groupId>
 	<artifactId>mybatis-plugin</artifactId>
-	<version>1.0.1</version>
+	<version>1.0.2</version>
 	<packaging>jar</packaging>
 	<name>mybatis-plugin</name>
 	<description>mybatis plugin</description>
@@ -24,8 +24,8 @@
 		<developer>
 			<name>lonyee</name>
 			<email>lonyee@live.com</email>
-			<organization>lemon-china</organization>
-			<organizationUrl>http://www.weiecho.cn</organizationUrl>
+			<organization>wei echo</organization>
+			<organizationUrl>http://weiecho.github.io</organizationUrl>
 			<timezone>+8</timezone>
 		</developer>
 	</developers>

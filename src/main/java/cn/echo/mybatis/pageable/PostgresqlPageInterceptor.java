@@ -1,4 +1,4 @@
-package cn.lemon.mybatis.pageable;
+package cn.echo.mybatis.pageable;
 
 import org.apache.ibatis.executor.statement.StatementHandler;
 import org.apache.ibatis.plugin.Intercepts;

@@ -1,4 +1,4 @@
-package cn.lemon.mybatis.util;
+package cn.echo.mybatis.util;
 
 import java.lang.reflect.Field;
 

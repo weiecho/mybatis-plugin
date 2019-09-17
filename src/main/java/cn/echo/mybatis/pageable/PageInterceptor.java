@@ -1,6 +1,6 @@
-package cn.lemon.mybatis.pageable;
+package cn.echo.mybatis.pageable;
 
-import cn.lemon.mybatis.util.ReflectUtil;
+import cn.echo.mybatis.util.ReflectUtil;
 import org.apache.ibatis.executor.parameter.ParameterHandler;
 import org.apache.ibatis.executor.statement.RoutingStatementHandler;
 import org.apache.ibatis.executor.statement.StatementHandler;
