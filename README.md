@@ -1,5 +1,11 @@
-# mybatis-handler
+# mybatis-plugin
 根据真实使用场景对mybatis进行的扩展，实现分页、json存储、数组存储、blob存储等支持。
+
+[![GitHub release](https://img.shields.io/github/v/release/weiecho/mybatis-plugin)](https://github.com/weiecho/mybatis-plugin/releases)
+[![Maven Central Repo](https://img.shields.io/maven-central/v/cn.weiecho/mybatis-plugin)](https://mvnrepository.com/artifact/cn.weiecho/mybatis-plugin)
+[![openjdk](https://img.shields.io/badge/jdk-v1.8%2B-red)](http://openjdk.java.net)
+[![License](https://img.shields.io/github/license/weiecho/sentinel-client)](https://opensource.org/licenses/Apache-2.0)
+
 
 ### 扩展Mybatis数据类型
 
